@@ -1,0 +1,149 @@
+@import 'reset';
+
+html{
+    height: 99%;
+    width: 99%;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+    flex: 1 0 auto;
+    min-width: 1200px;
+}
+
+#tableContainer{
+    width: 50%;
+    min-width: 415px;
+    margin: 10px;
+    cursor: pointer;
+
+
+    .tableHeader{
+        background-color:lightgray;
+        
+        .theadCell{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+
+            align-items: center;
+        }
+    }
+
+    .tableRow,
+    .tableHeader{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+    
+    .tCell{
+        padding: 5px;
+        height: 2rem;
+        max-width: 25%;
+        border-top: 1px solid black;
+        flex-grow: 1;
+
+        div{
+            height: 100%; 
+            min-width: 100px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+
+        }
+    }
+
+
+    .tableRow{
+
+        .about{
+            overflow: hidden;
+
+            white-space: inherit;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;  
+        }
+    }
+}
+
+#editContainer{
+    width: 50%;
+    min-width: 415px;
+
+    .editForm{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        margin: 20px 50%;
+        transform: translate(-50%);
+        width: 330px;
+
+        .formAct{
+            margin: 10px 0;
+            width: 100%;
+
+            label{
+                display:inline-block;
+                width: 100px;
+            }
+
+            .input{
+                border: 1px solid black;
+                width: 300px;
+                height: 1rem;
+            }
+            textarea.input{
+                resize: none;
+                height: 4rem;
+            }
+        }
+    }
+}
+
+.buttonContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    button{
+        margin: 0 10px;
+        width: 95px;
+    }
+}
+
+.title{
+    width: 100%;
+    border-bottom: 1px solid black;
+    text-align: center;
+    margin-bottom: 5px;
+    padding-bottom: 18px;
+}
+
+footer{
+    flex: 0 0 auto; 
+    min-width: 1200px;
+
+    p{
+        margin: 0 150px 10px;
+
+        text-align: end;  
+        font-size: 2rem;
+        font-family: serif;
+        font-style: italic;
+        font-weight: 400;
+    }
+}

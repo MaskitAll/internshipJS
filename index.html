@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Программист на js</title>
+
+    <link rel="stylesheet" href="/main.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+</head>
+<body>
+    <div class="container" id="main">
+        <div id="tableContainer">
+        <table>
+            <thead>
+            <tr class="tableHeader">
+                <td class="theadCell tCell firstName">
+                    <div @click="sortCol('firstName')">Firstname</div>
+                    <button class="hideArr" @click="toggle('firstName')">-</button>
+                </td>
+                <td class="theadCell tCell lastName">
+                    <div @click="sortCol('lastName')">Lastname</div>
+                    <button class="hideArr" @click="toggle('lastName')">-</button>
+                </td>
+                <!-- <td class="theadCell tCell phone">
+                    <div @click="sortCol('phone')">Phone</div>
+                    <button class="hideArr" @click="toggle('phone')">-</button>
+                </td> -->
+                <td class="theadCell tCell about">
+                    <div @click="sortCol('about')">About</div>
+                    <button class="hideArr" @click="toggle('about')">-</button>
+                </td>
+                <td class="theadCell tCell eyeColor">
+                    <div @click="sortCol('eyeColor')">Eye Color</div>
+                    <button class=" hideArr" @click="toggle('eyeColor')">-</button>
+                </td>
+            </tr>
+            </thead>
+
+            <tr class="tableRow" v-for="person in personPerPage" @click="edit(person)">
+                <td class="tCell">
+                    <div class="firstName" v-if="hide.fname === true">{{person.name.firstName}}</div>
+                </td>
+                <td class="tCell">
+                    <div class="lastName" v-if="hide.lname === true">{{person.name.lastName}}</div>
+                </td>
+                <!-- <td class="tCell">
+                    <div class="phone" v-if="hide.phone === true">{{person.phone}}</div>
+                </td> -->
+                <td class="tCell">
+                    <div class="about" v-if="hide.about === true">{{person.about}}</div>
+                </td>
+                <td class="tCell">
+                    <div class="eyeColor" v-if="hide.eyeCo === true"  v-bind:style="{'background-color': person.eyeColor, 'border-radius': '5px'}"></div>
+                </td>
+            </tr>
+        </table>
+        <div class="pageNav buttonContainer">
+            <button @click=movePages(-1)>Back</button>
+            <p>{{pageNum / rowsPerPage + 1}} out of {{Math.ceil(persons.length / rowsPerPage)}}</p>
+            <button @click=movePages(1)>Next</button>
+          </div>
+        </div>
+
+        <div id="editContainer" >
+            <form action="" class="editForm">
+                <h1 class="title">Edit person</h1>
+
+                <div class="formAct">
+                    <label for="firstName">Firstname</label>
+                    <input class="input firstName" type="text" name="firstName">
+                </div>
+                <div class="formAct">
+                    <label for="lastName">Lastname</label>
+                    <input class="input lastName" type="text" name="lastName">
+                </div>
+                <!-- <div class="formAct">
+                    <label for="phone">Phone</label>
+                    <input class="input phone" type="text" name="phone">
+                </div> -->
+                <div class="formAct">
+                    <label for="about">About</label>
+                    <textarea class="input about" name="about" rows="3"></textarea>
+                </div>
+                <div class="formAct">
+                    <label for="eyeColor">Eye Color</label>
+                    <input class="input eyeColor" type="color" name="eyeColor">
+                </div>
+
+                <div class="buttonContainer formAct">
+                    <button @click.prevent="saveEdit()">Save</button>
+                    <!-- <button @click.prevent="newPerson()">New</button> -->
+                </div>
+            </form>
+        </div>
+
+
+    </div>
+    
+    <footer>
+        <p>(c)Сделано MaskiT</p>
+    </footer>
+</body>
+
+<script src="/script.js"></script>
+</html>
