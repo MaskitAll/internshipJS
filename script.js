@@ -93,6 +93,7 @@ var Vue = new Vue({
             
             var a = this.persons.findIndex(pers => this.currentRow.id === pers.id) // поиск нужного person в массиве
             this.persons[a] = this.currentRow;
+            this.currentRow = [];
             
             document.querySelector(".formAct .firstName").value = "";
             document.querySelector(".formAct .lastName").value = "";
@@ -108,6 +109,7 @@ var Vue = new Vue({
                 case "brown": return "#A52A2A"
                 case "red": return "#FF0000"
                 case "green": return "#00FF00"
+                default: return color;
             }
         }
 
